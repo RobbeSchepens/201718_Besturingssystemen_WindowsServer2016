@@ -7,3 +7,5 @@
 *.iso
 *.ova
 
+# Mac OS
+*.DS_Store
