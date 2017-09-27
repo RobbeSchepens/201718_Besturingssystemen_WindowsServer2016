@@ -1,6 +1,6 @@
 # Besturingssystemen - Windows: logboek
 
-Deze repository is bedoeld om de logboeken bij te houden voor Besturingssystemen/Windows binnen de opleiding professionale bachelor toegepaste informatica aan de HoGent. U noteert per oefening uw eigen notities, commando's, extra geraadpleegde bronnen, ... Als start kunt u vertrekken van het aangeboden sjabloon.
+Deze repository is bedoeld om de logboeken bij te houden voor Besturingssystemen/Windows binnen de opleiding professionale bachelor toegepaste informatica aan de HoGent. U noteert per oefening uw eigen notities, commando's, extra geraadpleegde bronnen, ... Als start kunt u vertrekken van het aangeboden [sjabloon](verslag-oefening-?.md) die u dan per oefening kunt aanmaken.
 
 ## Gegevens student
 
