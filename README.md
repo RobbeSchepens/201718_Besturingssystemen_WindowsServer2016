@@ -4,11 +4,11 @@ Deze repository is bedoeld om de logboeken bij te houden voor Besturingssystemen
 
 ## Gegevens student
 
-- Naam: 
-- Klasgroep: 
-- Naam van je lector: Pieter De Bodt / Olivier Rosseel / Dirk Thijs (schrap wat niet past)
-- Github gebruikersnaam: [GEBRUIKER](https://github.com/GEBRUIKER)
-- URL naar je Github-repository: <https://github.com/HoGentTIN/ilnx-GEBRUIKER>
+- Naam: Robbe Schepens
+- Klasgroep: A2
+- Naam van je lector: ~~Pieter De Bodt~~ / Olivier Rosseel / ~~Dirk Thijs~~ (schrap wat niet past)
+- Github gebruikersnaam: [RobbeSchepens](https://github.com/RobbeSchepens)
+- URL naar je Github-repository: <https://github.com/HoGentTIN/besturingssystemen-windows-17-18-RobbeSchepens>
 
 ## Verslagen bijhouden
 
