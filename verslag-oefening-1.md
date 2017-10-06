@@ -43,10 +43,14 @@ We veranderen het IP adres naar 192.168.1.1 met als subnetmask 255.255.255.0.
 
 ### Server afsluiten
 
-We sluiten de server af en geven als reden op unplanned stopping. 
+We sluiten de server af en geven als reden op Other (unplanned). 
 
 ## Waar had ik problemen mee?
 
 * Voor mijn VM kon ik geen netwerkkaart activeren van het type "Host-only".
 
 Bij de instellingen van VirtualBox, tabblad "Netwerk", moest ik eerst een "Host-only" netwerk aanmaken.
+
+## Statements uit pretest
+
+- 
