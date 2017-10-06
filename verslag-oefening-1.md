@@ -53,4 +53,14 @@ Bij de instellingen van VirtualBox, tabblad "Netwerk", moest ik eerst een "Host-
 
 ## Statements uit pretest
 
-- 
+- Om Windows Server 2016 uitsluitend te gebruiken als file server is de Server Core Installation voldoende.
+
+- Je moet een wachtwoord instellen voor de administrator omdat anders iedereen alles zou kunnen doen op de server.
+
+- Bij installatie is het aanbevolen om een 64 GB partitie te nemen.
+
+- IPv4 en subnetmasker zijn instellingen voor de NIC (Network Interface Card) van de PC/server. 
+
+- Als je een IPv4 adres instelt is ook het subnetmasker verplicht.
+
+- Een installatiepartitie voor Windows Server gebruikt het NTFS filesystem. 
