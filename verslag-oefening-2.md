@@ -2,31 +2,30 @@
 
 ## Korte omschrijving
 
-Bij deze oefening installeren we Active Directory Domain Services in onze Windows Server 2016. Hierbij doen we de nodige basisconfiguratie, zoals de configuratie van 
+Bij deze oefening installeren we Active Directory Domain Services in onze Windows Server 2016. Hierbij doen we de nodige basisconfiguratie.
 
 ## Stappenplan
 
 1. ADDS installatie starten
-2. 
+2. Forest instellingen correct kiezen
+3. Als DNS server inzetten
+
 
 ## Procedure per stap
 
-Noteer hier wat voor u belangrijk is om bij te houden van alles wat u hebt moeten uitvoeren om tot een goed resultaat te komen. Zorg ervoor dat u nadien snel weet hoe u de zaken had aangepakt zodat u het snel opnieuw zou kunnen reproduceren. Zorg eventueel voor voldoende **screenshots** die de procedure verduidelijken.
+### ADDS installatie starten
 
-(voorbeeld)
+Na het IPv4 juist in te stellen zoals in oefening 1, kunnen we beginnen met de Active Directory Domain Services op te zetten. We kiezen voor "Add roles and features" in het Server Manager Dashboard.
 
-### VirtualBox downloaden en installeren.
+We doorlopen de installatie met default opties en drukken next zoals beschreven in de Windows Server Manual. Bij het selecteren van Server Roles, duiden we Active Directory Domain Services aan en klikken we op Add Features.
 
-VirtualBox downloaden we van [VirtualBox.org](https://www.virtualbox.org/). We volgen de installatiewizard om de installatie te voltooien.
+Daarna gaan we verder met default opties tot we het eerste deel al installeren en de installatie voltooid. 
 
-![VirtualBox](images/virtualbox.png)
+### Forest instellingen correct kiezen
 
-### ISO Windows Server 2016 downloaden en een key opvragen.
+Als de installatie gedaan is, klikken we op "Promote this server to a Domain Controller". Add a new forest selecteren en kies voor de naam "Confidas.local" zoals beschreven in de opgave van de opdracht (niet de manual). Next.
 
-We downloaden de ISO van [imagine.microsoft.com](https://imagine.microsoft.com/) en krijgen hierbij ook een installatie key.
-
-...
-
+Forest en Domain Functional Level stellen we beiden in op Windows Server 2016. De DNS server optie vinken we aan en als DSRM wachtwoord stellen we weer Admin2017 in.
 
 ## Gebruikte commando's (optioneel)
 
@@ -40,19 +39,15 @@ PS C:\Users\Administrator> Get-Help
 
 ## Waar had ik problemen mee?
 
-(voorbeeld)
+* Ik kon Windows Server 2016 niet selecteren als Domein Functional Level en Forest Functional Level.
 
-* Ik kon Windows 2016 niet selecteren bij de aanmaak van mijn VM in VirtualBox.
-
-Ik moest mijn toestel opstarten in de BIOS en bij de systeemconfiguratie de instelling "Virtual Technology" activeren.
-
-* Voor mijn VM kon ik geen netwerkkaart activeren van het type "Host-only".
-
-Bij de instellingen van VirtualBox, tabblad "Netwerk", moest ik eerst een "Host-only" netwerk aanmaken.
+Ik heb alle updates geinstalleerd en de installatie dan pas verder gezet. Daarna staat 2016 wel in het dropdownmenu. Zie [Support Microsoft - Shows Technical Preview](https://support.microsoft.com/nl-be/help/3202325/domain-controller-promotion-process-shows-windows-server-technical-pre).
 
 ## Extra bronnen (optioneel)
 
 - [Wikipedia - Domain Controller](https://en.wikipedia.org/wiki/Domain_controller)
+
+- Windows Server 2016 manual
 
 ## Statements uit pretest
 
