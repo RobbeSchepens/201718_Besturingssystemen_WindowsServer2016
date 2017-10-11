@@ -104,11 +104,11 @@ Server Manager > Add Roles and Features > ADDS en DNS toevoegen.
 
 #### Promote this server to a Domain Controller
 
-Add Domain Controller to an existing domain. Domain: Confidas.local [Select...] vul de credentials in: CONFIDAS\Administrator met als ww Admin2017 zodat hij toegang heeft tot het domain Confidas. 
+Add Domain Controller to an existing domain. Domain: Confidas.local [Select...] vul de credentials in: Confidas.local\Administrator met als ww Admin2017 zodat hij toegang heeft tot het domain Confidas. 
 
 DNS server en Global Catalog aangevinkt. Site naam zou op PFGent moeten staan. Als DSRM ww geven we Admin2017. (Tot hierver de opdracht instructies 1.2)
 
-Update Delegations laten we afgevinkt. Replicate from > Any Domain Controller (WinServer1.Confidas.local gaf error). Mappen laten we standaard staan. Install. 
+Update Delegations laten we afgevinkt. Replicate from > WinServer1.Confidas.local. Mappen laten we standaard staan. Install. 
 
 ### WinServer2 als Member Server 
 
@@ -140,11 +140,11 @@ s
 
 |                                     | Standalone Server | Member Server | Domain Controller |
 | ----------------------------------- |:-----------------:|:-------------:|:-----------------:|
-| Bevat de map C:\Windows\NTDS        | right-aligned | $1600 |
-| Bevat de map c:\windows\Sysvol      | centered      |   $12 |
-| Bevat Machine Local users en groups |    $1 |
-| Bevat Domain Groups                 |    $1 |
-| Bevat Tools om de AD te beheren     |    $1 |
+| Bevat de map C:\Windows\NTDS        |  | X | X |
+| Bevat de map c:\windows\Sysvol      |  | X | X |
+| Bevat Machine Local users en groups | X | X | X |
+| Bevat Domain Groups                 |  | X | X |
+| Bevat Tools om de AD te beheren     |  |  | X |
 
 ## Waar had ik problemen mee?
 
