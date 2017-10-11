@@ -10,6 +10,7 @@ Bij deze oefening installeren we Active Directory Domain Services in onze Window
 2. Opzetten DC - Forest instellingen correct kiezen
 3. Domain Controller - Juist instellen en verkennen na ADDS met DC te installeren
 4. WinServer2 als Standalone Server - Opzetten van tweede Windows Server installatie
+5. WinServer2 als Member Server 
 
 ## Procedure per stap
 
@@ -41,7 +42,7 @@ Naast de standaard services (server roles) in een full Windows Server 2016 insta
 
 #### Bekijk de MMC “Active Directory and computers” inhoud van de OU Domain controllers
 
-Enkel de huidige computer "WIN50VTQ..."
+Enkel de huidige computer "WIN50VTQ..." (later hernoemt naar WinServer1)
 
 #### Bekijk de in AD aanwezige gebruikers en groepen. Bekijk de eigenschappenvensters van de domain users administrator en Guest. Stel voor de domain administrator in dat “Password never expires”.
 
@@ -73,25 +74,77 @@ In hetzelfde venster als het wijzigen van de description, klikken op het tabblad
 
 #### Bekijk welk IP adres voor de NIC LAN CONNECTIE is ingevuld bij de preferred DNS Server
 
-VRAGEN IN DE LES.
+Server Manager > Local Server > klikken op het IP adres van LAN. 
+
+Right click de LAN adapter > IPv4 > Properties > daarin zien we dat de Preferred DNS server het IP adres 127.0.0.1 is en dat klopt, aangezien de DNS server op dit systeem draait. 
 
 #### Controleer of voor de NIC INTERNET CONNECTIE het IP adres van de DNS server is ingevuld van de school
 
+Zelfde stappen als vorige vraag maar voor Internet adapter > Obtain DNS server address automatically. Je kan ook manueel in vullen. Je vindt ze in Mac: Netwerkvoorkeuren > Geavanceerd > DNS > 193.190.173.1 en 193.190.173.1. 
+
 ### [Extra] Nog een Domain Controller instellen
 
-Als we een tweede DC nodig hebben kan dit via de manual pagina 147. Onder AD Sites and Services > Sites > PFGent > NTDS Settings right click > Replicate Now...
+Als we een tweede DC nodig hebben kan dit via de manual pagina 147. Onder AD Sites and Services > Sites > PFGent > NTDS Settings right click > Replicate Now... 
 
 ### WinServer2 als Standalone Server - Opzetten van tweede Windows Server installatie
 
-Maak een nieuwe Virtuele Machine voor Windows Server 2016 met als naam WinServer2. Kies 2048 GB RAM, nieuwe virtuele HDD van 70GB. Optische schijf van iso van Windows Server 2016 toevoegen en launchen. Dutch (Belgium), Belgian Comma. Windows Server 2016 Standard (Desktop Experience). Voeg host-only netwerk adapter toe.
+Maak een nieuwe Virtuele Machine voor Windows Server 2016 met als naam WinServer2. Kies 2048 GB RAM, nieuwe virtuele HDD van 70GB. Optische schijf van iso van Windows Server 2016 toevoegen en launchen. Dutch (Belgium), Belgian Comma. Windows Server 2016 Standard (Desktop Experience). Voeg host-only netwerk adapter toe, verwijder NAT.
 
 #### Instellingen binnenin WinServer2
 
 Install Guest Additions DVD.
 
-Network Adapter Options... right click op 1 van de 2 > Properties > IPv4 > Properties > Static IP settings: IP adres 192.168.1.2 en subnet 255.255.255.0 instellen. 
+Network Adapter Options... right click op 1 van de 2 > Properties > IPv4 > Properties > Static IP settings: IP adres 192.168.1.2 en subnet 255.255.255.0 instellen. Rename "LAN CONNECTIE".
 
 Server Manager > Local Server click op server naam > Change... "WinServer2" en werkgroep "WINWERKGROEP".
+
+#### Installeer op WinServer2 de server role ADDS en DNS.
+
+Server Manager > Add Roles and Features > ADDS en DNS toevoegen. 
+
+#### Promote this server to a Domain Controller
+
+Add Domain Controller to an existing domain. Domain: Confidas.local [Select...] vul de credentials in: CONFIDAS\Administrator met als ww Admin2017 zodat hij toegang heeft tot het domain Confidas. 
+
+DNS server en Global Catalog aangevinkt. Site naam zou op PFGent moeten staan. Als DSRM ww geven we Admin2017. (Tot hierver de opdracht instructies 1.2)
+
+Update Delegations laten we afgevinkt. Replicate from > Any Domain Controller (WinServer1.Confidas.local gaf error). Mappen laten we standaard staan. Install. 
+
+### WinServer2 als Member Server 
+
+#### Welke server roles zijn er op member server WInServer2 geïnstalleerd
+
+ADDS en DNS roles. 
+
+#### Komen er op WinServer2 nog machine local users en groups voor. Zo ja 
+
+s
+
+#### Open op WinServer1 de MMC ADUC en haal het tabblad members van de domain group “domain admins” voor u en bekijk wie er lid is van deze groep
+
+s
+
+#### Open op WinServer2 het eigenschappenvenster van de machine local group Administrators. Wie is er lid van deze groep
+
+s
+
+#### Zijn er op de member server WinServer2 in het menu tools van de server manager opties opgenomen voor het beheer van de AD
+
+s
+
+#### In welke container zit het computer account WinServer2 in de AD op WinServer1
+
+s
+
+#### Tabel
+
+|                                     | Standalone Server | Member Server | Domain Controller |
+| ----------------------------------- |:-----------------:|:-------------:|:-----------------:|
+| Bevat de map C:\Windows\NTDS        | right-aligned | $1600 |
+| Bevat de map c:\windows\Sysvol      | centered      |   $12 |
+| Bevat Machine Local users en groups |    $1 |
+| Bevat Domain Groups                 |    $1 |
+| Bevat Tools om de AD te beheren     |    $1 |
 
 ## Waar had ik problemen mee?
 
@@ -101,7 +154,7 @@ Ik heb alle updates geinstalleerd en de installatie dan pas verder gezet. Daarna
 
 * Ik heb geen tweede product key voor de tweede server op te zetten. 
 
-## Extra bronnen (optioneel)
+## Extra bronnen
 
 - [Wikipedia - Domain Controller](https://en.wikipedia.org/wiki/Domain_controller)
 
