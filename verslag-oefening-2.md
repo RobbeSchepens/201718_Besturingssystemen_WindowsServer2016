@@ -112,13 +112,15 @@ Update Delegations laten we afgevinkt. Replicate from > WinServer1.Confidas.loca
 
 ### WinServer2 als Member Server 
 
+De vorige stappen had ik al gedaan om de server om te vormen naar Domain Controller. Om er normaal een member van te maken: Verkenner > This PC > Properties > Change Settings van computer name. Daar kun je dan de juiste workgroup en domain instellen enz. 
+
 #### Welke server roles zijn er op member server WInServer2 geïnstalleerd
 
 ADDS en DNS roles. 
 
 #### Komen er op WinServer2 nog machine local users en groups voor. Zo ja 
 
-s
+User, administrator
 
 #### Open op WinServer1 de MMC ADUC en haal het tabblad members van de domain group “domain admins” voor u en bekijk wie er lid is van deze groep
 
@@ -161,6 +163,8 @@ Ik heb alle updates geinstalleerd en de installatie dan pas verder gezet. Daarna
 - Windows Server 2016 manual
 
 - [Technet GCS uitzoeken](https://technet.microsoft.com/nl-be/library/cc794880(v=ws.10).aspx)
+
+- [Join domain as member](https://msdn.microsoft.com/en-us/library/ms942519%28v=cs.70%29.aspx?f=255&MSPPError=-2147217396)
 
 ## Statements uit pretest
 
