@@ -22,7 +22,7 @@ We doorlopen de installatie met default opties en drukken next zoals beschreven 
 
 Daarna gaan we verder met default opties tot we het eerste deel al installeren en de installatie voltooid. 
 
-### Opzetten DC - Forest instellingen correct kiezen
+### 2. Opzetten DC - Forest instellingen correct kiezen
 
 Als de installatie gedaan is, klikken we op "Promote this server to a Domain Controller". Add a new forest selecteren en kies voor de naam "Confidas.local" zoals beschreven in de opgave van de opdracht (niet de manual). Next.
 
@@ -30,7 +30,7 @@ Forest en Domain Functional Level stellen we beiden in op Windows Server 2016. D
 
 NETBIOS Domain Name is "POLIFORMA". De paden laten we op de default opties: C:\Windows\NTDS, C:\Windows\NTDS en C:\Windows\SYSVOL. Kijk de opties na en laat de installatie eindigen. De server zal automatisch herstarten.
 
-### Domain Controller - Juist instellen en verkennen na ADDS met DC te installeren (per opdrachtinstructie)
+### 3. Domain Controller - Juist instellen en verkennen na ADDS met DC te installeren (per opdrachtinstructie)
 
 #### Welke server rollen zijn er geïnstalleerd op server WinServer1
 
@@ -86,7 +86,7 @@ Zelfde stappen als vorige vraag maar voor Internet adapter > Obtain DNS server a
 
 Als we een tweede DC nodig hebben kan dit via de manual pagina 147. Onder AD Sites and Services > Sites > PFGent > NTDS Settings right click > Replicate Now... 
 
-### WinServer2 als Standalone Server - Opzetten van tweede Windows Server installatie
+### 3. WinServer2 als Standalone Server - Opzetten van tweede Windows Server installatie
 
 Maak een nieuwe Virtuele Machine voor Windows Server 2016 met als naam WinServer2. Kies 2048 GB RAM, nieuwe virtuele HDD van 70GB. Optische schijf van iso van Windows Server 2016 toevoegen en launchen. Dutch (Belgium), Belgian Comma. Windows Server 2016 Standard (Desktop Experience). Voeg host-only netwerk adapter toe, verwijder NAT.
 
@@ -98,7 +98,7 @@ Network Adapter Options... right click op 1 van de 2 > Properties > IPv4 > Prope
 
 Server Manager > Local Server click op server naam > Change... "WinServer2" en werkgroep "WINWERKGROEP".
 
-### WinServer2 als Member Server 
+### 5. WinServer2 als Member Server 
 
 De vorige stappen had ik al gedaan om de server om te vormen naar Domain Controller. Om er normaal een member van te maken: Verkenner > This PC > Properties > Change Settings van computer name. Daar kun je dan de juiste workgroup en domain instellen enz. 
 
