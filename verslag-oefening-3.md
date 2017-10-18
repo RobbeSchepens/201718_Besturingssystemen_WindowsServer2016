@@ -45,19 +45,7 @@ Properties > Forwarders (moeten servers van hogent of thuis van provider staan)
 
 Noteer hier wat voor u belangrijk is om bij te houden van alles wat u hebt moeten uitvoeren om tot een goed resultaat te komen. Zorg ervoor dat u nadien snel weet hoe u de zaken had aangepakt zodat u het snel opnieuw zou kunnen reproduceren. Zorg eventueel voor voldoende **screenshots** die de procedure verduidelijken.
 
-(voorbeeld)
-
-### VirtualBox downloaden en installeren.
-
-VirtualBox downloaden we van [VirtualBox.org](https://www.virtualbox.org/). We volgen de installatiewizard om de installatie te voltooien.
-
-![VirtualBox](images/virtualbox.png)
-
-### ISO Windows Server 2016 downloaden en een key opvragen.
-
-We downloaden de ISO van [imagine.microsoft.com](https://imagine.microsoft.com/) en krijgen hierbij ook een installatie key.
-
-...
+### Rol toevoegen
 
 ## Waar had ik problemen mee?
 
