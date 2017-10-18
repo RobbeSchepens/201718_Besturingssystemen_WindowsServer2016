@@ -98,6 +98,18 @@ Network Adapter Options... right click op 1 van de 2 > Properties > IPv4 > Prope
 
 Server Manager > Local Server click op server naam > Change... "WinServer2" en werkgroep "WINWERKGROEP".
 
+### WinServer2 als Member Server 
+
+De vorige stappen had ik al gedaan om de server om te vormen naar Domain Controller. Om er normaal een member van te maken: Verkenner > This PC > Properties > Change Settings van computer name. Daar kun je dan de juiste workgroup en domain instellen enz. 
+
+Hiervoor moet: 
+* Het IPV4 van Server 1 op 192.168.1.1 / 255.255.255.0 staan. Zijn DNS server op 127.0.0.1.
+* Het IPV4 van Server 2 op 192.168.1.2 / 255.255.255.0 staan. Zijn DNS server op 192.168.1.1.
+* Beiden servers moeten een Host-Only adapter hebben. 
+* Server 1 aanstaan.
+
+.\Administrator om als lokale administrator aan te melden.
+
 #### Installeer op WinServer2 de server role ADDS en DNS.
 
 Server Manager > Add Roles and Features > ADDS en DNS toevoegen. 
@@ -110,43 +122,39 @@ DNS server en Global Catalog aangevinkt. Site naam zou op PFGent moeten staan. A
 
 Update Delegations laten we afgevinkt. Replicate from > WinServer1.Confidas.local. Mappen laten we standaard staan. Install. 
 
-### WinServer2 als Member Server 
+#### Welke server roles zijn er op member server WinServer2 geïnstalleerd
 
-De vorige stappen had ik al gedaan om de server om te vormen naar Domain Controller. Om er normaal een member van te maken: Verkenner > This PC > Properties > Change Settings van computer name. Daar kun je dan de juiste workgroup en domain instellen enz. 
-
-#### Welke server roles zijn er op member server WInServer2 geïnstalleerd
-
-ADDS en DNS roles. 
+Geen. (Enkel de standaard File and Storage Services)
 
 #### Komen er op WinServer2 nog machine local users en groups voor. Zo ja 
 
-User, administrator
+Enkel Administrator. (Default account en Guest zijn locked)
 
 #### Open op WinServer1 de MMC ADUC en haal het tabblad members van de domain group “domain admins” voor u en bekijk wie er lid is van deze groep
 
-s
+Enkel Administrator. 
 
 #### Open op WinServer2 het eigenschappenvenster van de machine local group Administrators. Wie is er lid van deze groep
 
-s
+Administrator, POLIFORMA\Domain Admins
 
 #### Zijn er op de member server WinServer2 in het menu tools van de server manager opties opgenomen voor het beheer van de AD
 
-s
+Nee, geen enkele. 
 
 #### In welke container zit het computer account WinServer2 in de AD op WinServer1
 
-s
+De container Computers.
 
 #### Tabel
 
 |                                     | Standalone Server | Member Server | Domain Controller |
 | ----------------------------------- |:-----------------:|:-------------:|:-----------------:|
-| Bevat de map C:\Windows\NTDS        |  | X | X |
-| Bevat de map c:\windows\Sysvol      |  | X | X |
-| Bevat Machine Local users en groups | X | X | X |
-| Bevat Domain Groups                 |  | X | X |
-| Bevat Tools om de AD te beheren     |  |  | X |
+| Bevat de map C:\Windows\NTDS        |   |   | X |
+| Bevat de map c:\windows\Sysvol      |   |   | X |
+| Bevat Machine Local users en groups | X | X |   |
+| Bevat Domain Groups                 |   |   | X |
+| Bevat Tools om de AD te beheren     |   |   | X |
 
 ## Waar had ik problemen mee?
 
