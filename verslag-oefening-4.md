@@ -2,30 +2,98 @@
 
 ## Korte omschrijving
 
-Bij deze oefening installeren we de rol DHCP. Hierbij doen we de nodige basisconfiguratie.
+Bij deze oefening installeren we de rol DHCP. Hierbij doen we de nodige basisconfiguratie. We gaan in deze opdracht een DHCP server maken van onze WinServer1. We gaan voor ons netwerk een scoop instellen van DHCP adressen.
 
 ## Stappenplan
 
-1. VirtualBox downloaden en installeren.
-2. ISO Windows Server 2016 downloaden en een key opvragen.
-3. Virtuele machine aanmaken in VirtualBox.
-4. Windows Server 2016 installeren in de aangemaakte VM.
-5. Basisconfiguratie uitvoeren.
+1. Rol DHCP installeren
+2. Scoop toevoegen
+3. Bekijken van de eigenschappen en instellingen van DHCP
+4. Configureren van DHCP zodat hij gebruikt kan worden binnen het LAN Netwerk
+5. Maken we DHCP actief binnen het domein
 
 ## Procedure per stap
 
-Noteer hier wat voor u belangrijk is om bij te houden van alles wat u hebt moeten uitvoeren om tot een goed resultaat te komen. Zorg ervoor dat u nadien snel weet hoe u de zaken had aangepakt zodat u het snel opnieuw zou kunnen reproduceren. Zorg eventueel voor voldoende **screenshots** die de procedure verduidelijken.
+### 1. Rol DHCP installeren
 
-(voorbeeld)
+Add Roles and Features > DHCP > Next > Next > Next > ... 
 
-### VirtualBox downloaden en installeren.
+Complete DHCP configuration > Skip AD credentials > Commit > Close
+
+### 2. Scope toevoegen
+
+DHCP MMC > DHCP > winserver1.confidas.local > IPv4 rechterklikken > New Scope... 
+
+- Naam: PFScopeGent
+- Range IPv4 adressen: 192.168.1.31 tot en met 192.168.1.130 
+- Subnetmasker: 255.255.255.0
+- Sluit de range 192.168.1.81 tot en met 192.168.1.130 uit
+- Lease duur is 6 dagen
+- Configureer ook DHCP options met
+    - IPv4 adres van de router 192.168.1.1 
+    - Domain: confidas.local
+    - IPv4 adres van de DNS: 192.168.1.1 
+    - GEEN WINS
+- Activeer de aangemaakte scope nog niet
+
+### 3. Bekijken van de eigenschappen en instellingen van DHCP
+
+#### Bekijk de container address pool
+
+Bevat 2 ranges van adressen. Eén met de volledige range, de andere met alle excluded adressen.
+
+#### Bekijk de container address leases
+
+Hierin zien we de clients die adressen huren en hoe lang ze dit kunnen doen. 
+
+#### Bekijk het onderdeel Reservatie. Je gaat voor uw eerste Windows Client een reservatie maken binnen DHCP
+
+Hierin zien we de reservaties. Later zullen we één toevoegen. 
+
+#### Controleer of DHCP op het LAN gedeelte de scope Options 003,006 en 015 doorgeeft
+
+- 003 Routers
+- 006 DNS Servers
+- 015 DNS Domain Name
+
+### 4. Configureren van DHCP zodat hij gebruikt kan worden binnen het LAN Netwerk
+
+#### Regel de samenwerking tussen DHCP en DDNS
+- Stel dynamisch updaten in geïnitieerd door de DHCP cliënt
+- Laat A en PTR records verwijderen als de lease duur verstreken is
+
+
+
+#### Autoriseer de DHCP Scope
+
+Was al geautoriseerd bij installatie. 
+
+#### Activeer de DHCP scope
+
+
+
+#### Configureer later uw Windows cliënt als DHCP cliënt
+
+
+
+#### Bekijk de IPv4 configuratie van de Windows Cliënt
+
+
+
+### 5. Maken we DHCP actief binnen het domein
+
+#### Test de Internetverbinding van WinServer2
+
+
+
+#### Maak in DNS het PTR record aan voor WinServer2
+
+
 
 ## Waar had ik problemen mee?
 
-* Ik
+- Geen
 
-Ik 
+## Extra bronnen
 
-## Extra bronnen (optioneel)
-
-* Windows Server 2016 manual -> sectie "Install DHCP Server Graphically" en volgende (pdf bladzijden 91 tem. 110).
+- Windows Server 2016 manual -> sectie "Install DHCP Server Graphically" en volgende (pdf bladzijden 91 tem. 110).
