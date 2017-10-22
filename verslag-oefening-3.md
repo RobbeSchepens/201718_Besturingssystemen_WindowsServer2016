@@ -45,12 +45,10 @@ DNS MMC > Reverse Lookup Zone rechterklik > New Zone...
 
 #### Zorg dat voor de A-records van de machines WinServer1 en WinServer2 ook de bijhorende PTR records worden geschreven
 
-Rechterklik de nieuwe zone > New Pointer (PTR) ... > Host Name: Browse...
+Rechterklik de nieuwe zone > New Pointer (PTR)... > Host Name: Browse...
 
 - Look in: WinServer1 > Forward Lookup Zones > Confidas.local selecteren met 
-
-- Records: eerste keer WinServer1 selecteren > OK > OK
-
+- Records: WinServer1 selecteren > OK > OK
 - Record Types: Hosts (A or AAAA Records)
 
 Dan nog eens nieuwe pointer toevoegen voor de records van WinServer2.
@@ -64,7 +62,6 @@ Rechterklik de PTR > Properties. Niets interessants te zien.
 DNS tool > WinServer1 rechterklik > Properties > Monitoring > Test now (beiden aanvinken)
 
 - Simply query: Pass
-
 - Recursive query: Fail
 
 [DNS recursive test query failed](https://www.experts-exchange.com/questions/21226699/DNS-recursive-test-query-failed.html)
@@ -75,7 +72,9 @@ Dan ook de Default Gateway van WinServer2 ingesteld op 192.168.1.1 maar nog stee
 
 #### Test of u op WinServer2 verbinding kan maken met het internet
 
-Geen verbinding.
+Geen verbinding voor het toevoegen van de rol.
+
+Na het configureren van de rol, heb ik succesvol internet op WinServer2.
 
 > Maak van DC WinServer1 een NAT router die de NIC Internetconnectie gebruikt voor de verbinding met het internet. 
 > Installeer hiervoor de rol Remote Access en ga akkoord met de bijkomende features. 
