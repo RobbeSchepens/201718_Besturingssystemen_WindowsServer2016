@@ -56,13 +56,19 @@ Hierin zien we de reservaties. Later zullen we één toevoegen.
 - 006 DNS Servers
 - 015 DNS Domain Name
 
+Scope Options zijn typisch voor LAN: zoals gateway definieren.
+
+Server Options zijn typisch voor grotere zaken zoals DNS.
+
 ### 4. Configureren van DHCP zodat hij gebruikt kan worden binnen het LAN Netwerk
 
 #### Regel de samenwerking tussen DHCP en DDNS
 - Stel dynamisch updaten in geïnitieerd door de DHCP cliënt
 - Laat A en PTR records verwijderen als de lease duur verstreken is
 
+Dynamisch updaten vind je onder DNS MMC > Confidas.local rechterklik > Properties > General > Dynamic updates: Secure only
 
+DHCP > winserver1.confidas.local > IPv4 > Scope [192.168.1.0] PFScopeGent rechterklik > DNS > "Discard A and PTR records when lease is deleted" aanvinken
 
 #### Autoriseer de DHCP Scope
 
@@ -70,7 +76,7 @@ Was al geautoriseerd bij installatie.
 
 #### Activeer de DHCP scope
 
-
+DHCP > winserver1.confidas.local > IPv4 > Scope [] PFScopeGent rechterklik > Activate
 
 #### Configureer later uw Windows cliënt als DHCP cliënt
 
