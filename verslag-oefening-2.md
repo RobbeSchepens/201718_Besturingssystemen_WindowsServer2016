@@ -86,7 +86,7 @@ Zelfde stappen als vorige vraag maar voor Internet adapter > Obtain DNS server a
 
 Als we een tweede DC nodig hebben kan dit via de manual pagina 147. Onder AD Sites and Services > Sites > PFGent > NTDS Settings right click > Replicate Now... 
 
-### 3. WinServer2 als Standalone Server - Opzetten van tweede Windows Server installatie
+### 4. WinServer2 als Standalone Server - Opzetten van tweede Windows Server installatie
 
 Maak een nieuwe Virtuele Machine voor Windows Server 2016 met als naam WinServer2. Kies 2048 GB RAM, nieuwe virtuele HDD van 70GB. Optische schijf van iso van Windows Server 2016 toevoegen en launchen. Dutch (Belgium), Belgian Comma. Windows Server 2016 Standard (Desktop Experience). Voeg host-only netwerk adapter toe, verwijder NAT.
 
