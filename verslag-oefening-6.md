@@ -21,7 +21,7 @@ Maak alle schijfvolumes aan zoals in de opdracht. Server Manager > File and Stor
 - F: 10GB WinServ1Data
 - G: 20GB WinServ1Dist
 - H: 5GB WinServ1Spec
-- I: 5GB WinServ1Test
+- I: 5GB WinServ1Test FAT32
 
 ### 2. Bewerkingen uitvoeren op de aangemaakte schijven
 
@@ -67,7 +67,9 @@ Zorg dat u zowel op WinServer1 als op het WinClient1 bent ingelogd met domain ad
 
 ## Waar had ik problemen mee?
 
-- Geen
+- Mijn VDI was niet groot genoeg. Het lukte niet om de uitgebreide VDI ook volledig te zien in Windows Server.
+
+Opgelost door de nieuwe volumes te definieren op een nieuwe, tweede virtuele disk.
 
 ## Extra bronnen (optioneel)
 
