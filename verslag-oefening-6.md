@@ -30,7 +30,9 @@ Rechterklik Start > Disk Management
 - Converteer volume WinServ1Test (I) van FAT32 naar NTFS
 - Schakel automatische compressie in
 
-rightclick Format... naam veranderen naar WINSERV1TES en naar FAT32. Compressie kon niet worden aangeduid bij FAT32. 
+~~rightclick Format... naam veranderen naar WINSERV1TES en naar FAT32. Compressie kon niet worden aangeduid bij FAT32.~~
+
+Converteren gaat via de command line. `convert I: /fs:ntfs`
 
 - Schakel ook voor WinServ1Dist (G) automatische compressie in
 
@@ -69,4 +71,4 @@ Zorg dat u zowel op WinServer1 als op het WinClient1 bent ingelogd met domain ad
 
 ## Extra bronnen (optioneel)
 
-- 
+- [How to Convert FAT Disks to NTFS](https://technet.microsoft.com/en-us/library/bb456984.aspx)
