@@ -81,11 +81,11 @@ Verkenner > Netwerk > WinServer1.Confidas.local > UserFolders rechterklik > Netw
 
 #### Doe dit ook voor UserProfiles onder driveletter Q. Doe dit met het commando Net.Exe
 
-Command prompt (Run as Administrator) >  `net use Q: \\WinServer1.Confidas.local\F:\UserProfiles` 
+Command prompt (Run as Administrator) >  `net use q: \\WinServer1\UserProfiles` 
 
 #### Maak ook een mapping onder de driveletter R naar de root van volume WinServ1Data (F:)
 
-`net use R: \\WinServer1.Confidas.local\F:\` 
+`net use R: \\WinServer1\F:\` // Kan dit zonder command?? 
 
 #### Controleer de mappings op WinClient1 in het venster Computer.
 
@@ -93,7 +93,9 @@ Verkenner > Deze PC
 
 ## Waar had ik problemen mee?
 
-* Geen 
+* De net use command gave telkens Systeemfout 67: Kan netwerk niet vinden. 
+
+Heb veel verschillende paden geprobeerd, maar geen werkte. Heb dan maar via de normale mapping gedaan. 
 
 ## Extra bronnen (optioneel)
 
