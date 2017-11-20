@@ -42,34 +42,56 @@ WinServer1 > Verkenner > WinServ1Data F: rechterklik > Properties > Quota > Quot
 
 MMC AD Users and Computers > OU Directie > Madelief Smets rechterklik > Properties
 
+- Log on to: DESKTOP-I0U99TC (dit is te vinden onder WinClient1 > Verkenners > Deze PC rechterklik > Eigenschappen)
+
 #### Log in als Madelief Smets en kijk of de mapping naar de homefolder er staat 
 
-// No clue
+Jap, mapping is in orde!
 
 #### Controleer op DC PFSV1 of de folder Madelief Smets staat in de Profielmap 
 
-// Niets gevonden
-
-### 3. Eigen user account
+Na inloggen kwam het profielmapje er ook bij. 
 
 #### Controleer of voor elke gebruiker een homefolder is aangemaakt 
 
-
+Allemaal selecteren > Properties > Bij Profile path: `\\WinServer1\UserProfiles\%UserName%` en bij Home folder: connect F: to `\\WinServer1\UserFolders\%UserName%`
 
 #### Controleer of alle user accounts lid zijn van de groep domain users 
 
-
+MMC AD Users and Computers > Confidas.local > Users > Domain Users dubbelklik > Members 
 
 #### Stel voor alle user accounts in dat het paswoord nooit vervalt.  
 
+Allemaal selecteren > Properties > Account > Password never expires
 
+### 3. Eigen user account
+
+#### Zorg dat u dezelfde bevoegdheden krijgt als de domain administrator 
+
+MMC AD Users and Computers > Confidas.local > OU Automatisering > eigen naam dubbelklik > Member of > Add... > zoeken op Administrators
+
+#### Zorg dat u met uw account een remote desktop verbinding met DC mag maken 
+
+> By default, members of the Administrators group have this right on domain controllers, workstations, and servers. The Remote Desktops Users group also has this right on workstations and servers.
+
+Server Manager > Local Server > Remote Desktop op Disabled klikken > "Allow remote connections to this computer"
+
+#### Herstart DC
+
+#### Log in op het werkstation en maak een remote desktop verbinding met DC 
+
+Start > Verbinden met Extern Bureaublad / Connect to Remote Desktop > WinServer1 > ww invullen. 
+
+"Your account is not allowed to use this pc." > MMC Users and Computers > OU Automatisering > eigen naam dubbelklikken > Account > Log on to... > All Computers. 
+
+#### Maak een icoon om deze remote desktop verbinding te maken in uw taskbar.
+
+Bureaublad rechterklik > Nieuw > Snelkoppeling > `mstsc.exe /v:192.168.1.1`
 
 ## Waar had ik problemen mee?
 
-- "Log in als Madelief Smets en kijk of de mapping naar de homefolder er staat" lukt niet
+## Bronnen
 
-No fix
-
-## Extra bronnen (optioneel)
-
-- 
+- [Allow log on through Remote Desktop Services](https://technet.microsoft.com/en-us/library/dn221985.aspx)
+- [How to enable remote desktop](https://www.rootusers.com/how-to-enable-remote-desktop-in-windows-server-2016/)
+- [How to Create a "Remote Desktop Connection" Shortcut to a Specific Computer](https://www.sevenforums.com/tutorials/149790-remote-desktop-connection-shortcut-create-specific-computer.html)

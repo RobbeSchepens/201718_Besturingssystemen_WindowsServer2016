@@ -85,7 +85,7 @@ Command prompt (Run as Administrator) >  `net use q: \\WinServer1\UserProfiles`
 
 #### Maak ook een mapping onder de driveletter R naar de root van volume WinServ1Data (F:)
 
-`net use R: \\WinServer1\F:\` // Kan dit zonder command?? 
+Command prompt (Run as Administrator) > `net use r: \\WinServer1\F$`
 
 #### Controleer de mappings op WinClient1 in het venster Computer.
 
@@ -93,9 +93,9 @@ Verkenner > Deze PC
 
 ## Waar had ik problemen mee?
 
-* De net use command gave telkens Systeemfout 67: Kan netwerk niet vinden. 
+* Ik weet niet hoe je een mapping kan maken naar de root van volume WinServ1Data F: 
 
-Heb veel verschillende paden geprobeerd, maar geen werkte. Heb dan maar via de normale mapping gedaan. 
+Blijkt dat dit kan door het dollar teken toe te voegen. 
 
 ## Extra bronnen (optioneel)
 
